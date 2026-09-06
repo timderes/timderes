@@ -1,0 +1,26 @@
+#
+# Check spelling in the repository using cspell
+#
+# See: https://cspell.org/docs/Configuration/githubaction
+#
+name: Check Spelling
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  spell-check:
+    name: Spell Check
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7.0.1
+
+      - name: Run cspell
+        uses: streetsidesoftware/cspell-action@v9.1.0
+        with:
+          config: ".cspell.json"
+          files: |
+            **/*.{md,mdx,json,jsonc,txt}
