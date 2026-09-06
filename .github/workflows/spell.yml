@@ -21,6 +21,6 @@ jobs:
       - name: Run cspell
         uses: streetsidesoftware/cspell-action@v9.1.0
         with:
-          config: "."
+          config: ".cspell.json"
           files: |
             **/*.{md,mdx,json,jsonc,txt}
